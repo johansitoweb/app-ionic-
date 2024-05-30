@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon App</title>
+  <!-- Importar los estilos de Ionic -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+</head>
+<body>
+  <ion-app>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Pokémon App</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <div class="ion-text-center ion-padding">
+        <h1>¡Presiona el botón para obtener un Pokémon!</h1>
+        <img id="pokemon-image" src="" alt="Pokémon" style="max-width: 300px;">
+        <ion-button id="pokemon-button" expand="block" color="primary">
+          Obtener Pokémon
+        </ion-button>
+      </div>
+    </ion-content>
+  </ion-app>
+
+  <script>
+    const pokemonButton = document.getElementById('pokemon-button');
+    const pokemonImage = document.getElementById('pokemon-image');
+
+    // Lista de URLs de imágenes de Pokémon
+    const pokemonImages = [
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png',
+      // Agrega más URLs de imágenes de Pokémon aquí
+    ];
+
+    pokemonButton.addEventListener('click', () => {
+      // Seleccionar un Pokémon aleatorio de la lista
+      const randomIndex = Math.floor(Math.random() * pokemonImages.length);
+      const randomPokemonImage = pokemonImages[randomIndex];
+
+      // Actualizar la imagen del Pokémon
+      pokemonImage.src = randomPokemonImage;
+    });
+  </script>
+</body>
+</html>
